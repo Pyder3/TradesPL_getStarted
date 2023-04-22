@@ -52,7 +52,7 @@ const Home = (props) => {
                 The easiest way to maintain a record of all your trades.
               </span>
               <br className="home-text007"></br>
-              <span className="home-text008">Free First Six months of Service. After that $5 per month.</span>
+              <span className="home-text008">Free First Six months of Service. After that $5 per month or $50 annually.</span>
               <br></br>
             </span>
             <span className="home-description">
