@@ -243,8 +243,7 @@ const Home = (props) => {
                 </div>
                 <div data-type="accordion-content" className="question-content">
                   <span className="home-text055">
-                    Trade Journaling service is free. No credit card required,
-	            no registration. After one year of service, $5 per month.
+                    Trade Journaling service is free. No credit card required. After one year of service, $5 per month.
 	  	    Cancel anytime for no billing starting 1st of next month.
 	            However, the spreadsheet will be removed if there is no trade entry for three months.  
 	   	    Future analytic  services will not be free.
@@ -281,6 +280,22 @@ const Home = (props) => {
                   <span className="home-text059">
 	  	    Indeed! If you trade on any exchange in the world, just start using 
 	            the email-based Trade journaling system.
+                  </span>
+                </div>
+              </div>
+              <div data-role="Accordion" className="question">
+                <div data-type="accordion-header" className="home-trigger2">
+                  <span className="home-text058">
+                    Why is a trade sometimes delayed in appearing in the spreadsheet?
+                  </span>
+                  <svg viewBox="0 0 1024 1024" className="home-icon06">
+                    <path d="M810 554h-256v256h-84v-256h-256v-84h256v-256h84v256h256v84z"></path>
+                  </svg>
+                </div>
+                <div data-type="accordion-content" className="question-content">
+                  <span className="home-text059">
+                    If the format of the trade is not recognized by the system, it will report this to the user.
+                    Support will attempt to resolve the issue if all trade fields are available in the message.
                   </span>
                 </div>
               </div>
