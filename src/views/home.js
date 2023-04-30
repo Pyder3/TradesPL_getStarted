@@ -57,7 +57,7 @@ const Home = (props) => {
               </span>
               <br className="home-text007"></br>
               <span className="home-text008">
-                After that $5 per month or $50 per year. Cancel Anytime.
+                After that $5 per month. Cancel Anytime.
               </span>
               <br></br>
             </span>
