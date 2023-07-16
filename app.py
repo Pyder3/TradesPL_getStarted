@@ -29,6 +29,16 @@ def verify_email():
     print("requested")
     data = request.get_json()
     email = data.get('myemail')
+
+    try:
+        with open("user_database.csv", 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if email in row:
+                    return jsonify("Email is already registered!")
+    except:
+        pass
+
     if(send_email(email)):
         return jsonify('Verification link sent succefully!')
     else:

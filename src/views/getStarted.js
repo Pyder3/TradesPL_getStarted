@@ -68,19 +68,24 @@ const getStarted = (props) => {
 
             const returnData = await response.json();
             setLoading(false);
-            if (returnData == 'Verification link sent succefully!') {
+            if (returnData === 'Verification link sent succefully!') {
                   console.log('Verification link sent');
                   setMessage('Verification link sent successfully!');
-
-            }
-            else {
+            } else if (returnData === "Email couldn't be sent"){
                   console.log("Unable to send verification link!");
                   setMessage('Failed to send verification link.');
+            } else if (returnData === "Email is already registered!"){
+                  setMessage("Email already exists!!");
             }
       }
 
       const submitEmail = async() => {
+            if (message != "Verification link sent successfully!") {
+                  setSubmitMessage("Please validate Email first!");
+                  return null;
+            }
             let data = {myemail: email, message: textBoxValue};
+            
             setSubmitLoading(true);
             setSubmitButtonText("Loading...");
             const response = await fetch("http://127.0.0.1:8000/submitEmail", {method: 'POST', headers:{'Content-Type': 'application/json'}, body: JSON.stringify(data)});
@@ -171,7 +176,7 @@ const getStarted = (props) => {
             value={textBoxValue}
             readOnly></textarea>
     </div>
-    <button type='button' id='submitButton' onClick={submitEmail} disabled={submitLoading || textBoxValue == "" || textBoxValue == "NYS"}>
+    <button type='button' id='submitButton' onClick={submitEmail} disabled={submitLoading || textBoxValue == "" || textBoxValue == "NYS" || !isValid}>
             {submitButtonText}
       </button>
       <p style={{ color: submitMessage.includes('successfully') ? 'green' : 'red', textAlign: 'center', marginTop: "10px"}}>{submitMessage}</p>
