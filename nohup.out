@@ -1,0 +1,37 @@
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+Traceback (most recent call last):
+  File "/Users/parmatmasingh/opt/anaconda3/bin/flask", line 10, in <module>
+    sys.exit(main())
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 967, in main
+    cli.main(args=sys.argv[1:], prog_name="python -m flask" if as_module else None)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 586, in main
+    return super(FlaskGroup, self).main(*args, **kwargs)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/click/decorators.py", line 73, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 848, in run_command
+    app = DispatchingApp(info.load_app, use_eager_loading=eager_loading)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 305, in __init__
+    self._load_unlocked()
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 330, in _load_unlocked
+    self._app = rv = self.loader()
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 392, in load_app
+    app = locate_app(self, import_name, None, raise_if_not_found=False)
+  File "/Users/parmatmasingh/opt/anaconda3/lib/python3.8/site-packages/flask/cli.py", line 240, in locate_app
+    __import__(module_name)
+  File "/Applications/TradePL/TradesPLWeb_v1/app.py", line 7
+    reutrn jsonify({'result' : 69420})
+           ^
+SyntaxError: invalid syntax

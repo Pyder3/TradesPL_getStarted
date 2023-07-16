@@ -3,9 +3,15 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import Card from '../components/card'
+import { getStarted } from './getStarted';
 import './home.css'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Home = (props) => {
+  let history = useHistory();
+  function handleGetStartedClick() {
+      history.push("/getStarted")
+  }
   return (
     <div className="home-container">
       <Helmet>
@@ -87,6 +93,7 @@ const Home = (props) => {
             <div className="home-container01">
               <button
                 type="button"
+                onClick={handleGetStartedClick}
                 className="home-button button button-gradient"
               >
                 Get started
