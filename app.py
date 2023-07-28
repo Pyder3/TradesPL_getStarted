@@ -49,6 +49,7 @@ def verifyAndSubmitEmail():
     data = request.get_json()
     email = data.get('myemail')
     message = data.get('message')
+    message += " DEMO"
     isEmailVerified = False
 
     try:
