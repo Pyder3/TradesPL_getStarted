@@ -20,11 +20,15 @@ app.config["MAIL_USERNAME"] = config["user"]
 app.config["MAIL_PASSWORD"] = config["password"]
 app.config["MAIL_USE_TLS"] = True
 app.config["SECRET_KEY"] = os.getenv("SECRET-KEY")
+app.config.update(
+    SERVER_NAME="www.tradespl.com",
+    PREFERRED_URL_SCHEME='https'
+)
 serializer = URLSafeTimedSerializer(app.config["SECRET_KEY"])
 
 mail = Mail(app)
 
-@app.route("/verify", methods=['POST'])
+@app.route("/api/verify", methods=['POST'])
 def verify_email():
     print("requested")
     data = request.get_json()
@@ -44,7 +48,7 @@ def verify_email():
     else:
         return jsonify("Email couldn't be sent")
     
-@app.route("/submitEmail", methods=['POST'])
+@app.route("/api/submitEmail", methods=['POST'])
 def verifyAndSubmitEmail():
     data = request.get_json()
     email = data.get('myemail')

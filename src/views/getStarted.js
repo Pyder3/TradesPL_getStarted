@@ -59,7 +59,7 @@ const getStarted = (props) => {
             let data = {myemail: email};
             setLoading(true);
 
-            const response = await fetch("http://127.0.0.1:8000/verify", {method: 'POST', headers: 
+            const response = await fetch("/api/verify", {method: 'POST', headers: 
             {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
 
             if (!response.ok) {     
@@ -88,7 +88,7 @@ const getStarted = (props) => {
             
             setSubmitLoading(true);
             setSubmitButtonText("Loading...");
-            const response = await fetch("http://127.0.0.1:8000/submitEmail", {method: 'POST', headers:{'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+            const response = await fetch("/api/submitEmail", {method: 'POST', headers:{'Content-Type': 'application/json'}, body: JSON.stringify(data)});
 
             if (!response.ok) {     
                   throw new Error('Network response was not ok');
