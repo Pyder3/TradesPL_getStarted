@@ -34,7 +34,7 @@ const getStarted = (props) => {
             if (newOption === "Stocks, Bonds") {
                   setTextBoxValue("#10007309698 BOT +50 TSLA @248.80BID=248.78 ASK=248.83 MARK=248.80 IMPL VOL=63.26% DELTA=null NEWS=null , ACCOUNT 88***82");
             } else if (newOption === "Future, Commodities") {
-                  setTextBoxValue("NYS");
+                  setTextBoxValue("SELL -1 /CLU23:XNYM @81.07 LMT");
             } else if (newOption === "Naked Calls and Puts") {
                   setTextBoxValue("#10053828461 SOLD -10 UNH 100 (Weeklys) 14 JUL 23 465 PUT @.06 NYSEBID=478.13 ASK=478.30 MARK=478.215 IMPL VOL=20.87% DELTA=null NEWS=null , ACCOUNT 88***82");
             } else if (newOption === "Long and Short Verticals") {
@@ -44,13 +44,13 @@ const getStarted = (props) => {
             } else if (newOption === "Unbalanced Butterfly") {
                   setTextBoxValue("#10049040127 BOT +1 1/3/2 ~BUTTERFLY GOOGL 100 21 JUL 23 123/129/145 CALL @.83 CBOEBID=124.14 ASK=124.15 MARK=124.1401 IMPL VOL=34.47% DELTA=null NEWS=null , ACCOUNT 88***82");
             } else if (newOption === "~Butterfly") {
-                  setTextBoxValue("NYS");
+                  setTextBoxValue("#10049040127 BOT +1 1/3/2 ~BUTTERFLY GOOGL 100 21 JUL 23 123/129/145 CALL @.83 CBOEBID=124.14 ASK=124.15 MARK=124.1401 IMPL VOL=34.47% DELTA=null NEWS=null , ACCOUNT 88***82");
             } else if (newOption === "Ratio Spreads") {
-                  setTextBoxValue("NYS");
+                  setTextBoxValue("SELL -1 1/2 BACKRATIO NFLX 100 (Weeklys) 11 AUG 23 465/485 CALL @-.71 LMT");
             } else if (newOption === "Iron Condors") {
-                  setTextBoxValue("NYS");
+                  setTextBoxValue("BUY +1 IRON CONDOR NFLX 100 (Weeklys) 4 AUG 23 422.5/425/420/417.5 CALL/PUT @2.30 LMT");
             }else if (newOption === "Straddles") {
-                  setTextBoxValue("NYS");
+                  setTextBoxValue("BUY +1 STRADDLE NFLX 100 (Weeklys) 4 AUG 23 435 CALL/PUT @12.68 LMT");
             }
 
       }
@@ -114,6 +114,7 @@ const getStarted = (props) => {
       </Helmet>
       <div className="home-navbar navbar-container">
       <div className="home-max-width max-width">
+	<a href="/">
         <div className="home-logo">
           <img
             alt="image"
@@ -127,6 +128,7 @@ const getStarted = (props) => {
             <br></br>
           </span>
         </div>
+	</a>
         <div className="home-burger-menu navbar-burger-menu">
           <svg viewBox="0 0 1024 1024" className="home-icon">
             <path d="M128 256h768v86h-768v-86zM128 554v-84h768v84h-768zM128 768v-86h768v86h-768z"></path>

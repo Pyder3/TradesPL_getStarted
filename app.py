@@ -21,7 +21,7 @@ app.config["MAIL_PASSWORD"] = config["password"]
 app.config["MAIL_USE_TLS"] = True
 app.config["SECRET_KEY"] = os.getenv("SECRET-KEY")
 app.config.update(
-    SERVER_NAME="www.tradespl.com",
+    SERVER_NAME="tradespl.com",
     PREFERRED_URL_SCHEME='https'
 )
 serializer = URLSafeTimedSerializer(app.config["SECRET_KEY"])
