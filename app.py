@@ -53,7 +53,7 @@ def verifyAndSubmitEmail():
     data = request.get_json()
     email = data.get('myemail')
     message = data.get('message')
-    message += " DEMO"
+    # message += " DEMO"
     isEmailVerified = False
 
     try:
@@ -66,10 +66,13 @@ def verifyAndSubmitEmail():
         return jsonify("Email not verified")
     
     if (isEmailVerified):
+        messages = message.split("\n\n")
         try:
-            msg = Message(message, sender=email, recipients=[app.config["MAIL_USERNAME"]])
-            msg.body = message
-            mail.send(msg)
+            for message in messages:
+                message += "DEMO"
+                msg = Message(message, sender=email, recipients=[app.config["MAIL_USERNAME"]])
+                msg.body = message
+                mail.send(msg)
             return jsonify("message sent successfully")
         except:
             return jsonify('error')

@@ -20,7 +20,47 @@ const getStarted = (props) => {
       const[submitMessage, setSubmitMessage] = useState('');
       const[submitLoading, setSubmitLoading] = useState(false);
       const[submitButtonText, setSubmitButtonText] = useState('Submit');
+      const [selected, setSelected] = useState({
+            "Stocks, Bonds": false,
+            "Future, Commodities": false,
+            "Naked Calls and Puts":false,
+            "Long and Short Verticals":false,
+            "Balanced Butterfly":false,
+            "Unbalanced Butterfly":false,
+            "~Butterfly":false,
+            "Ratio Spreads":false,
+            "Iron Condors":false,
+            "Straddles":false
+      })
+
+      const messages = {
+            "Stocks, Bonds": "#10007309698 BOT +50 TSLA @248.80BID=248.78 ASK=248.83 MARK=248.80 IMPL VOL=63.26% DELTA=null NEWS=null , ACCOUNT 88***82",
+            "Future, Commodities": "SELL -1 /CLU23:XNYM @81.07 LMT",
+            "Naked Calls and Puts":"#10053828461 SOLD -10 UNH 100 (Weeklys) 14 JUL 23 465 PUT @.06 NYSEBID=478.13 ASK=478.30 MARK=478.215 IMPL VOL=20.87% DELTA=null NEWS=null , ACCOUNT 88***82",
+            "Long and Short Verticals":"#10050965207 BOT +2 VERTICAL GOOGL 100 21 JUL 23 129/145 CALL @.55BID=124.26 ASK=124.27 MARK=124.26 IMPL VOL=33.82% DELTA=null NEWS=null , ACCOUNT 88***82",
+            "Balanced Butterfly":"#10050945977 SOLD -1 BUTTERFLY ENPH 100 21 JUL 23 185/190/195 CALL @.57 CBOEBID=181.62 ASK=181.72 MARK=181.65 IMPL VOL=66.50% DELTA=null NEWS=null , ACCOUNT 88***82",
+            "Unbalanced Butterfly":"#10049040127 BOT +1 1/3/2 ~BUTTERFLY GOOGL 100 21 JUL 23 123/129/145 CALL @.83 CBOEBID=124.14 ASK=124.15 MARK=124.1401 IMPL VOL=34.47% DELTA=null NEWS=null , ACCOUNT 88***82",
+            "~Butterfly":"#10049040127 BOT +1 1/3/2 ~BUTTERFLY GOOGL 100 21 JUL 23 123/129/145 CALL @.83 CBOEBID=124.14 ASK=124.15 MARK=124.1401 IMPL VOL=34.47% DELTA=null NEWS=null , ACCOUNT 88***82",
+            "Ratio Spreads":"SELL -1 1/2 BACKRATIO NFLX 100 (Weeklys) 11 AUG 23 465/485 CALL @-.71 LMT",
+            "Iron Condors":"BUY +1 IRON CONDOR NFLX 100 (Weeklys) 4 AUG 23 422.5/425/420/417.5 CALL/PUT @2.30 LMT",
+            "Straddles":"BUY +1 STRADDLE NFLX 100 (Weeklys) 4 AUG 23 435 CALL/PUT @12.68 LMT"
+      }
       
+      const handleCheckboxChange = (event) => {
+            const newValue = event.target.checked;
+            const option = event.target.name;
+            setSelected(prevSelected => ({
+                  ...prevSelected,
+                  [option]:newValue
+            }));
+
+            if (newValue) {
+                  setTextBoxValue(prevVal => prevVal + messages[option] + "\n\n");
+            }
+            else {
+                  setTextBoxValue(prevVal => prevVal.replace(messages[option] + "\n\n", ''));
+            }
+      };
 
       const handleEmailChange = (event) => {
             setEmail(event.target.value);
@@ -139,7 +179,7 @@ const getStarted = (props) => {
     <div class="container">
     <div className="container1_parent">
       <div className="container1">
-        <li><input type="radio" name="tradeOption" id="option1" value="Stocks, Bonds" onChange={handleRadioChange}/><label htmlFor="option1">Stocks, Bonds</label></li>
+        {/* <li><input type="radio" name="tradeOption" id="option1" value="Stocks, Bonds" onChange={handleRadioChange}/><label htmlFor="option1">Stocks, Bonds</label></li>
         <li><input type="radio" name="tradeOption" id="option2" value="Future, Commodities" onChange={handleRadioChange}/><label htmlFor="option2">Future, Commodities</label></li>
         <li><input type="radio" name="tradeOption" id="option3" value="Naked Calls and Puts" onChange={handleRadioChange}/><label htmlFor="option3">Naked Calls and Puts</label></li>
         <li><input type="radio" name="tradeOption" id="option4" value="Long and Short Verticals" onChange={handleRadioChange}/><label htmlFor="option4">Long and Short Verticals</label></li>
@@ -148,8 +188,89 @@ const getStarted = (props) => {
         <li><input type="radio" name="tradeOption" id="option7" value="~Butterfly" onChange={handleRadioChange}/><label htmlFor="option7">~Butterfly</label></li>
         <li><input type="radio" name="tradeOption" id="option8" value="Ratio Spreads" onChange={handleRadioChange}/><label htmlFor="option8">Ratio Spreads</label></li>
         <li><input type="radio" name="tradeOption" id="option9" value="Iron Condors" onChange={handleRadioChange}/><label htmlFor="option9">Iron Condors</label></li>
-        <li><input type="radio" name="tradeOption" id="option10" value="Straddles" onChange={handleRadioChange}/><label htmlFor="option10">Straddles</label></li>
-        </div>
+        <li><input type="radio" name="tradeOption" id="option10" value="Straddles" onChange={handleRadioChange}/><label htmlFor="option10">Straddles</label></li> */}
+       <label>
+       <input 
+            type="checkbox"
+            name="Stocks, Bonds"
+            checked={selected["Stocks, Bonds"]}
+            onChange={handleCheckboxChange}>
+      </input>  
+      Stocks, Bonds
+      </label>
+      <label>
+            <input
+            type="checkbox"
+            name="Future, Commodities"
+            checked={selected["Future, Commodities"]}
+            onChange={handleCheckboxChange}></input>
+            Future, Commodities
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Naked Calls and Puts"
+            checked={selected["Naked Calls and Puts"]}
+            onChange={handleCheckboxChange}></input>
+            Naked Calls and Puts
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Long and Short Verticals"
+            checked={selected["Long and Short Verticals"]}
+            onChange={handleCheckboxChange}></input>
+            Long and Short Verticals
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Balanced Butterfly"
+            checked={selected["Balanced Butterfly"]}
+            onChange={handleCheckboxChange}></input>
+            Balanced Butterfly
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Unbalanced Butterfly"
+            checked={selected["Unbalanced Butterfly"]}
+            onChange={handleCheckboxChange}></input>
+            Unbalanced Butterfly
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="~Butterfly"
+            checked={selected["~Butterfly"]}
+            onChange={handleCheckboxChange}></input>
+            ~Butterfly
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Ratio Spreads"
+            checked={selected["Ratio Spreads"]}
+            onChange={handleCheckboxChange}></input>
+            Ratio Spreads
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Iron Condors"
+            checked={selected["Iron Condors"]}
+            onChange={handleCheckboxChange}></input>
+            Iron Condors
+      </label>
+      <label>
+            <input 
+            type="checkbox"
+            name="Straddles"
+            checked={selected["Straddles"]}
+            onChange={handleCheckboxChange}></input>
+            Straddles
+      </label>
+      </div>
 </div>
 
       <div className="container2_3_parent">
